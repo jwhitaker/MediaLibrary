@@ -1,0 +1,40 @@
+﻿<h2>Movies</h2>
+
+<div id="moviesList">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Movie Title</th>
+                <th>Year Released</th>
+                <th>Genres</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% _.each(movies, function(movie) { %>
+                <tr>
+                    <td>
+                <a href="#/movies/<%= movie.Id %>"><%= movie.Title %></a></td>
+            
+                    <td><%= movie.YearReleased %></td>
+                    <td>
+                        <%= _.toArray(_.map(movie.Genres, function(g) { return g.Name })).join(', ') %>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+
+    <% if (pageInfo.totalPages > 1) { %>
+    <div class="pagination pagination-centered">
+		<ul>
+			<li class="<%= (pageInfo.prevPage == null ? 'disabled' : '') %>"><a href="#<%= (pageInfo.prevPage == null ? '' : '/movies/page/' + pageInfo.prevPage) %>">&laquo;</a></li>
+
+            <% for (var i = 1; i <= pageInfo.totalPages; i++) { %>
+            <li <%= (i == pageInfo.currentPage ? 'class="active"' : '') %>><a href="#/movies/page/<%= i %>"><%= i %></a></li>
+            <% } %>
+
+            <li class="<%= (pageInfo.nextPage == null ? 'disabled' : '') %>"><a href="#<%= (pageInfo.nextPage == null ? '' : '/movies/page/' + pageInfo.nextPage) %>">&raquo;</a></li>
+		</ul>
+	</div>
+    <% } %>
+</div>
