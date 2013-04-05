@@ -9,6 +9,13 @@ namespace MediaLibrary
     {
         public static void Register(HttpConfiguration config)
         {
+
+            //config.Routes.MapHttpRoute(
+            //    name: "MoviePosters",
+            //    routeTemplate: "api/{controller}/{id}/SayHello",
+            //    defaults: new { id = RouteParameter.Optional, Action = "SayHello" }
+            //);
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",

@@ -1,82 +1,99 @@
 ﻿
 <div class="page-header">
-    <h1>Edit Movie</h1>
+    <h1><%= isNew ? 'New' : 'Edit' %> Movie</h1>
 </div>
 
 <div class="alert alert-success" style="display:none;"><b>Success!</b> Movie was successfully saved.</div>
 
 <form class="form-horizontal">
-    <div class="control-group">
-        <label class="control-label" for="title-input">Title</label>
-        <div class="controls">
-                <input type="text" class="input-xlarge" id="title-input" autofocus="autofocus" value="<%= movie.Title %>" placeholder="Movie Name" />
-                <span class="help-inline"></span>
-        </div>
-    </div>
+    <div class="row">
+        <div class="span8">
+            <div class="control-group">
+                <label class="control-label" for="Title-input">Title</label>
+                <div class="controls">
+                        <input type="text" class="input-xlarge" id="Title-input" autofocus="autofocus" value="<%= movie.Title %>" placeholder="Movie Name" />
+                        <span class="help-inline"></span>
+                </div>
+            </div>
 
-    <div class="control-group">
-        <label class="control-label" for="yearreleased-input">Year Released</label>
-        <div class="controls">
-                <input type="text" class="input-medium" id="yearreleased-input" value="<%= movie.YearReleased %>" placeholder="Year Released" />
-                <span class="help-inline"></span>
-        </div>
-    </div>
+            <div class="control-group">
+                <label class="control-label" for="YearReleased-input">Year Released</label>
+                <div class="controls">
+                        <input type="text" class="input-medium" id="YearReleased-input" value="<%= movie.YearReleased %>" placeholder="Year Released" />
+                        <span class="help-inline"></span>
+                </div>
+            </div>
 
-    <div class="control-group">
-        <label class="control-label" for="directors-input">Directors</label>
-        <div class="controls">
-                <input type="text" class="input-medium" id="directors-input" value="<%= movie.Directors %>" placeholder="Directors" />
-                <span class="help-inline"></span>
-        </div>
-    </div>
+            <div class="control-group">
+                <label class="control-label" for="Directors-input">Directors</label>
+                <div class="controls">
+                        <input type="text" class="input-medium" id="Directors-input" value="<%= movie.Directors %>" placeholder="Directors" />
+                        <span class="help-inline"></span>
+                </div>
+            </div>
 
-    <div class="control-group">
-        <label class="control-label" for="actors-input">Actors</label>
-        <div class="controls">
-                <input type="text" class="input-medium" id="actors-input" value="<%= movie.Actors %>" placeholder="Actors" />
-                <span class="help-inline"></span>
-        </div>
-    </div>
+            <div class="control-group">
+                <label class="control-label" for="Actors-input">Actors</label>
+                <div class="controls">
+                        <input type="text" class="input-medium" id="Actors-input" value="<%= movie.Actors %>" placeholder="Actors" />
+                        <span class="help-inline"></span>
+                </div>
+            </div>
 
-    <div class="control-group">
-        <label class="control-label" for="plot-input">Plot</label>
-        <div class="controls">
-                <textarea class="input-xlarge" id="plot-input" placeholder="Plot"><%= movie.Plot %></textarea>
-                <span class="help-inline"></span>
-        </div>
-    </div>
+            <div class="control-group">
+                <label class="control-label" for="Plot-input">Plot</label>
+                <div class="controls">
+                        <textarea class="input-xlarge" id="Plot-input" placeholder="Plot"><%= movie.Plot %></textarea>
+                        <span class="help-inline"></span>
+                </div>
+            </div>
 
-    <div class="control-group">
-        <label class="control-label" for="notes-input">Notes</label>
-        <div class="controls">
-                <textarea class="input-xlarge" id="notes-input" placeholder="Notes"><%= movie.Notes %></textarea>
-                <span class="help-inline"></span>
-        </div>
-    </div>
+            <div class="control-group">
+                <label class="control-label" for="Notes-input">Notes</label>
+                <div class="controls">
+                        <textarea class="input-xlarge" id="Notes-input" placeholder="Notes"><%= movie.Notes %></textarea>
+                        <span class="help-inline"></span>
+                </div>
+            </div>
 
-    <div class="control-group">
-        <p class="control-label">Genres</p>
-        <div class="controls">
-            <div class="row-fluid">                            
-                <% var genreList = genres.chunk(3).transpose() %>
-                <% for (var i = 0; i < genreList.length; i++) { %>
-                    <div class="controls span2" style="white-space:nowrap;">
-                    <% for (var j = 0; j < genreList[i].length; j++) { %>
-                        <% g = genreList[i][j] %>
+            <div class="control-group">
+                <label class="control-label" for="IMDB-input">IMDB</label>
+                <div class="controls">
+                        <input type="text" class="input-medium" id="IMDB-input" value="<%= movie.IMDB %>" placeholder="IMDB" />
+                        <span class="help-inline"></span>
+                </div>
+            </div>
 
-                        <% if (g != null) { %>
-                            <label for="genre_<%= g.Id %>">
-                                <input type="checkbox" id="genre_<%= g.Id %>" data-genreId="<%= g.Id %>" class="genre-checkbox" <%= _.find(movie.Genres, function(a) { return a.Id == g.Id; }) == null ? '' : 'checked="checked"' %> />
-                                <%= g.Name %>
-                            </label>
+            <div class="control-group">
+                <p class="control-label">Genres</p>
+                <div class="controls">
+                    <div class="row-fluid">                            
+                        <% var genreList = genres.chunk(2).transpose() %>
+                        <% for (var i = 0; i < genreList.length; i++) { %>
+                            <div class="controls span3" style="white-space:nowrap;">
+                            <% for (var j = 0; j < genreList[i].length; j++) { %>
+                                <% g = genreList[i][j] %>
+
+                                <% if (g != null) { %>
+                                    <label for="genre_<%= g.Id %>">
+                                        <input type="checkbox" id="genre_<%= g.Id %>" data-genreId="<%= g.Id %>" class="genre-checkbox" <%= _.find(movie.Genres, function(a) { return a.Id == g.Id; }) == null ? '' : 'checked="checked"' %> />
+                                        <%= g.Name %>
+                                    </label>
+                                <% } %>
+                            <% } %>
+                            </div>
                         <% } %>
-                    <% } %>
                     </div>
-                <% } %>
+                </div>
+            </div>
+        </div>
+        <div class="span3">
+            <div class="well image_upload_container">
+                <p class="image_upload_drop_zone"><img id="posterDroppable" width="180" src="<%= movie.PosterFilename ? '/Uploads/Posters/' + movie.PosterFilename : '' %>" /></p>
+                <p class="image_upload_message">To change the picture, drag a new picture from your file system onto the box above.</p>
             </div>
         </div>
     </div>
-
     <div class="form-actions">
         <a class="btn btn-primary save-btn">Save</a>
         <a class="btn back-btn">Back</a>

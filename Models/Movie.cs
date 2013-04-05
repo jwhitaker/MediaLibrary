@@ -24,8 +24,11 @@ namespace MediaLibrary.Models
         public String Plot { get; set; }
         public String Notes { get; set; }
 
+        public String IMDB { get; set; }
+
         public DateTime DateCreated { get; set; }
         public DateTime DateModified { get; set; }
+        public String PosterFilename { get; set; }
 
         public virtual ICollection<Genre> Genres { get; set; }
     }

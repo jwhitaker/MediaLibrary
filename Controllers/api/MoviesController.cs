@@ -40,6 +40,8 @@ namespace MediaLibrary.Controllers.Api
             return movie;
         }
 
+
+        [HttpPut]
         public HttpResponseMessage PutMovie(int id, Movie movie)
         {
             if (ModelState.IsValid && id == movie.Id)
@@ -85,6 +87,7 @@ namespace MediaLibrary.Controllers.Api
             }
         }
 
+        [HttpPost]
         public HttpResponseMessage PostMovie(Movie movie)
         {
             if (ModelState.IsValid)
@@ -108,6 +111,7 @@ namespace MediaLibrary.Controllers.Api
             }
         }
 
+        [HttpDelete]
         public HttpResponseMessage DeleteMovie(int id)
         {
             Movie movie = db.Movies.Find(id);

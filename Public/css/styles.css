@@ -1,1 +1,10 @@
-﻿
+﻿.image_upload_drop_zone {
+    border: 3px dashed #c0c0c0;
+    width:100%;
+    height:318px;
+}
+
+.image_upload_message {
+    color: #808080;
+    font-size:0.9em;
+}

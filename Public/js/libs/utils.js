@@ -38,6 +38,43 @@
 
         hideAlert: function () {
             $('.alert').hide();
+        },
+
+        displayFieldError: function (error) {
+            var field = error.name + '-input';
+
+            var controlGroup = $('#' + field).parent().parent();
+            controlGroup.addClass('error');
+
+            $('.help-inline', controlGroup).html(error.message);
+        },
+
+        removeFieldError: function (name) {
+            var field = name + '-input';
+            var controlGroup = $('#' + field).parent().parent();
+            controlGroup.removeClass('error');
+            $('.help-inline', controlGroup).html('');
+        },
+
+        uploadPoster: function (file, callback) {
+            var formData = new FormData();
+            formData.append('poster', file);
+
+            $.ajax({
+                url: '/api/Poster',
+                type: 'POST',
+                data: formData,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    if (data instanceof Array) {
+                        callback(data[0].FileName);
+                    } else {
+                        alert('The server did not return the correct data after uploading the poster');
+                    }
+                }
+            });
         }
     };
 }(window.jQuery);
