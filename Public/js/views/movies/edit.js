@@ -137,7 +137,6 @@
 
             if (this.fileToUpload) {
                 utils.uploadPoster(this.fileToUpload, function (posterFilename) {
-                    console.log(posterFilename);
                     $this.model.set('PosterFilename', posterFilename);
                     $this.newSaveMovie();
                 });

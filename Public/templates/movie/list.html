@@ -17,8 +17,6 @@
             
                     <td><%= movie.YearReleased %></td>
                     <td>
-                        <% console.log(movie) %>
-
                         <%= _.toArray(_.map(movie.Genres, function(g) { return g.Name })).join(', ') %>
                     </td>
                 </tr>
