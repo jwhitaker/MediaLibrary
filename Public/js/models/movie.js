@@ -17,7 +17,10 @@
         },
 
         initialize: function () {
-            this.attributes.Genres = new GenreCollection();
+            if (this.attributes.Genres === undefined) {
+                this.attributes.Genres = new GenreCollection();
+            }
+
             this.validators = {};
 
             this.validators.Title = function (value) {
@@ -60,23 +63,6 @@
             }
 
             return _.size(messages) > 0 ? messages : false;
-            //var errors = [];
-
-            //if (!attrs.Title) {
-            //    errors.push({name: 'Title', message: 'A movie title is required' });
-            //}
-
-            //if (!attrs.YearReleased) {
-            //    errors.push({ name: 'YearReleased', message: 'A year released value is required' });
-            //} else {
-            //    var n = attrs.YearReleased.match(/^\d{4}$/);
-
-            //    if (n == null) {
-            //        errors.push({ name: 'YearReleased', message: 'An invalid year was specified' });
-            //    }
-            //}
-
-            //return errors.length > 0 ? errors : false;
         },
 
         parse: function (resp, options) {
