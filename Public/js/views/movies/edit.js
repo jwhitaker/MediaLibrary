@@ -87,6 +87,9 @@
                 var reader = new FileReader();
                 reader.onload = function (e) {
                     $('#posterDroppable').hide();
+
+                    $('#posterDroppable').parent().removeClass('image_upload_drop_zone');
+
                     $('#posterDroppable').attr('src', e.target.result);
                     $('#posterDroppable').fadeIn('slow');
                 };
@@ -123,6 +126,10 @@
                     genres: $this.genres.toJSON(),
                     isNew: $this.model.isNew()
                 }));
+
+                if ($this.model.get('PosterFilename') !== null) {
+                    $('#posterDroppable').parent().removeClass('image_upload_drop_zone');
+                }
             });
             
             this.loadGenres(cb);
