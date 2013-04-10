@@ -112,6 +112,7 @@
     <Compile Include="Controllers\api\PosterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\api\MoviesController.cs" />
+    <Compile Include="Extensions\CustomMultipartFormDataStreamProvider.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -119,7 +120,7 @@
     <Compile Include="Models\MediaLibraryContext.cs" />
     <Compile Include="Models\MediaLibraryContextDbInitializer.cs" />
     <Compile Include="Models\Movie.cs" />
-    <Compile Include="Models\PagingExtensions.cs" />
+    <Compile Include="Extensions\PagingExtensions.cs" />
     <Compile Include="Models\Poster.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

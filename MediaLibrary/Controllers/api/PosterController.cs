@@ -11,29 +11,10 @@ using System.Web.Http;
 using MediaLibrary.Models;
 using System.Threading.Tasks;
 using System.IO;
+using MediaLibrary.Extensions;
 
 namespace MediaLibrary.Controllers.api
 {
-    public class CustomMultipartFormDataStreamProvider : MultipartFormDataStreamProvider
-    {
-        public CustomMultipartFormDataStreamProvider(String rootPath) : base(rootPath)
-        {
-            
-        }
-
-        public override string GetLocalFileName(System.Net.Http.Headers.HttpContentHeaders headers)
-        {
-            base.GetLocalFileName(headers);
-
-            var i = headers.ContentDisposition.FileName.Split('.').Last();
-
-            var fileName = headers.ContentDisposition.FileName.Replace("\"", "");
-            var extension = Path.GetExtension(fileName);
-
-            return Guid.NewGuid().ToString() + extension;
-        }
-    }
-
     public class PosterController : ApiController
     {
         private MediaLibraryContext db = new MediaLibraryContext();
@@ -59,9 +40,7 @@ namespace MediaLibrary.Controllers.api
         {
             ThrowIf(HttpStatusCode.UnsupportedMediaType, () => !this.Request.Content.IsMimeMultipartContent("form-data"));
 
-            var rootPath = HttpContext.Current.Server.MapPath("~/Uploads/Posters"); 
-
-            //var rootPath = string.Format("{0}\\{1}", Environment.GetEnvironmentVariable("TEMP"), "medialibrary");
+            var rootPath = HttpContext.Current.Server.MapPath("~/Uploads/Posters");
 
             try
             {
