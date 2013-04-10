@@ -113,6 +113,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\api\MoviesController.cs" />
     <Compile Include="Extensions\CustomMultipartFormDataStreamProvider.cs" />
+    <Compile Include="Extensions\MediaLibraryConfiguration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

@@ -127,7 +127,9 @@
                     isNew: $this.model.isNew()
                 }));
 
-                if ($this.model.get('PosterFilename') !== null) {
+                console.log($this.model.get('PosterFilename'));
+
+                if ($this.model.get('PosterFilename')) {
                     $('#posterDroppable').parent().removeClass('image_upload_drop_zone');
                 }
             });

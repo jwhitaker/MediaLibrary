@@ -40,7 +40,7 @@ namespace TheWhitakers.MediaLibrary.Controllers.api
         {
             ThrowIf(HttpStatusCode.UnsupportedMediaType, () => !this.Request.Content.IsMimeMultipartContent("form-data"));
 
-            var rootPath = HttpContext.Current.Server.MapPath("~/Uploads/Posters");
+            var rootPath = HttpContext.Current.Server.MapPath(MediaLibraryConfiguration.Settings.PosterUploadPath);
 
             try
             {
