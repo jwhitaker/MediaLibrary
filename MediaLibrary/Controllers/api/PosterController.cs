@@ -8,12 +8,12 @@ using System.Net;
 using System.Net.Http;
 using System.Web;
 using System.Web.Http;
-using MediaLibrary.Models;
+using TheWhitakers.MediaLibrary.Models;
 using System.Threading.Tasks;
 using System.IO;
-using MediaLibrary.Extensions;
+using TheWhitakers.MediaLibrary.Extensions;
 
-namespace MediaLibrary.Controllers.api
+namespace TheWhitakers.MediaLibrary.Controllers.api
 {
     public class PosterController : ApiController
     {

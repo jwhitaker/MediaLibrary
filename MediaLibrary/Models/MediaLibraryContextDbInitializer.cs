@@ -4,7 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
-namespace MediaLibrary.Models
+namespace TheWhitakers.MediaLibrary.Models
 {
     public class MediaLibraryContextDbInitializer : DropCreateDatabaseIfModelChanges<MediaLibraryContext>
     {

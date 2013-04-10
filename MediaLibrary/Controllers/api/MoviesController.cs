@@ -8,9 +8,9 @@ using System.Net;
 using System.Net.Http;
 using System.Web;
 using System.Web.Http;
-using MediaLibrary.Models;
+using TheWhitakers.MediaLibrary.Models;
 
-namespace MediaLibrary.Controllers.Api
+namespace TheWhitakers.MediaLibrary.Controllers.Api
 {
     public class MoviesController : ApiController
     {

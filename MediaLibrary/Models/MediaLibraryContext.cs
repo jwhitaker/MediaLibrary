@@ -1,6 +1,6 @@
 ﻿using System.Data.Entity;
 
-namespace MediaLibrary.Models
+namespace TheWhitakers.MediaLibrary.Models
 {
     public class MediaLibraryContext : DbContext
     {

@@ -1,11 +1,11 @@
-﻿using MediaLibrary.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
+using TheWhitakers.MediaLibrary.Models;
 
-namespace MediaLibrary.Controllers.Api
+namespace TheWhitakers.MediaLibrary.Controllers.Api
 {
     public class GenresController : ApiController
     {

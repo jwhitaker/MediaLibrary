@@ -5,7 +5,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Web;
 
-namespace MediaLibrary.Extensions
+namespace TheWhitakers.MediaLibrary.Extensions
 {
     public class CustomMultipartFormDataStreamProvider : MultipartFormDataStreamProvider
     {

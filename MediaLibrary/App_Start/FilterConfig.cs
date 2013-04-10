@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace MediaLibrary
+namespace TheWhitakers.MediaLibrary
 {
     public class FilterConfig
     {
